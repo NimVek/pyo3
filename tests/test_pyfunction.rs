@@ -88,7 +88,10 @@ fn test_functions_with_function_args() {
         py_cfunc_arg
         bool_to_string,
         r#"
-        def foo(): return "bar"
+        import sys
+        def foo():
+            sys.stdout
+            return "bar"
         assert py_func_arg(foo) == "bar"
         assert py_cfunc_arg(bool_to_string) == "Some(true)"
         "#
